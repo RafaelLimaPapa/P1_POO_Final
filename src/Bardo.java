@@ -24,5 +24,31 @@ public class Bardo extends Personagem {
                 break;                        
             }
         }
-    }    
+    }
+    @Override
+    public void duelar(Personagem adversario){
+        if (getRepertorio().size() == 0){
+            System.out.println(getNome() +" nao tem musicas, impossivel duelar");
+            System.out.println("**********************");
+            return;
+        }
+        System.out.println(getNome() +" iniciou um duelo de musicas");
+
+        var gerador = new Random();
+        var sorteio = gerador.nextInt(getRepertorio().size());
+        Musica mDuelo = getRepertorio().get(sorteio);
+        if(adversario.getRepertorio().contains(mDuelo)){
+            setEnergia(getEnergia() - 1);
+            adversario.setEnergia(adversario.getEnergia() - 1);
+            System.out.println("Ambos conheciam a musica");
+            System.out.println("**********************");
+        }
+        else{
+            adversario.setEnergia(adversario.getEnergia() - 1);
+            adversario.getRepertorio().add(mDuelo);
+            System.out.println(getNome() +" Venceu o duelo");
+            System.out.println(adversario.getNome() +" Aprendeu a musica");
+            System.out.println("**********************");
+        }
+    }
 }

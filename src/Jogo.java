@@ -55,10 +55,10 @@ while (p1.estaVivo() || p2.estaVivo()) {
             if(p1.estaVivo() && p2.estaVivo()){
                 var quemComeca = gerador.nextInt(1, 3);
                 if(quemComeca == 1){
-                    p1.duelo(p2);
+                    p1.duelar(p2);
                 }
                 else{
-                    p2.duelo(p1);
+                    p2.duelar(p1);
                 }
             }
             Thread.sleep(5000);
