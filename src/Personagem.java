@@ -2,15 +2,16 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class Personagem {
+public abstract class Personagem {
 
-    String nome;
-    private int energia;
-    private int fome;
-    private int sono;
+    private String nome;
+    private  int energia;
+    private  int fome;
+    private  int sono;
     private List<String> Mochila = new ArrayList<>();
     private List<Musica> repertorio = new ArrayList<>();
-    public boolean vivo = true;
+
+    public abstract void realizarAcaoAleatoria();
 
     public Personagem(String nome) {
         System.out.println("Construindo novo personagem");
@@ -127,13 +128,10 @@ public class Personagem {
             System.out.println(adversario.nome +" Aprendeu a musica");
             System.out.println("**********************");
         }
-
     }
 
-    public void estaVivo(){
-        if(energia == 0){
-            vivo = false;
-        }
+    public boolean estaVivo(){
+        return energia > 0;
     }
     @Override
     public String toString() {
@@ -160,5 +158,9 @@ public class Personagem {
     
     public List<Musica> getRepertorio() {
         return repertorio;
+    }
+
+    public String getNome() {
+        return nome;
     }
 }
