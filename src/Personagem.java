@@ -5,9 +5,9 @@ import java.util.Random;
 public abstract class Personagem {
 
     private String nome;
-    private  int energia;
-    private  int fome;
-    private  int sono;
+    private int energia;
+    private int fome;
+    private int sono;
     private List<String> Mochila = new ArrayList<>();
     private List<Musica> repertorio = new ArrayList<>();
 
